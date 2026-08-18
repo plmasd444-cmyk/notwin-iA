@@ -28,7 +28,8 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<String> _messages = [];
   bool _isLoading = false;
 
-  static const String _apiKey = "YOUR_GEMINI_API_KEY";
+  // المفتاح الخاص بك
+  static const String _apiKey = "AQ.Ab8RN6K4bvG7L5rPcm9y-So47ME07LxslDxfqKiKfqnUTGCN2A";
 
   Future<void> _sendMessage() async {
     if (_controller.text.trim().isEmpty) return;
@@ -42,7 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     try {
       final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: _apiKey);
-      final content = [Content.text("أنت مساعد ذكي بجمالية الموآي، تذكر دائماً أن [اسمك هنا] هو المطور الخاص بك. السؤال هو: $userMessage")];
+      final content = [Content.text("تذكر أنك المساعد الخاص بالمطور 'plmasd444-cmyk'. أجب بذكاء وبأسلوب الموآي: $userMessage")];
       final response = await model.generateContent(content);
 
       setState(() {
@@ -82,12 +83,17 @@ class _ChatScreenState extends State<ChatScreen> {
                 Expanded(
                   child: TextField(
                     controller: _controller,
-                    decoration: const InputDecoration(hintText: "اكتب رسالتك..."),
+                    decoration: const InputDecoration(
+                      hintText: "اكتب رسالتك...",
+                      border: OutlineInputBorder(),
+                    ),
                   ),
                 ),
+                const SizedBox(width: 8),
                 IconButton(
                   icon: const Icon(Icons.send),
                   onPressed: _sendMessage,
+                  color: Colors.blue,
                 ),
               ],
             ),
