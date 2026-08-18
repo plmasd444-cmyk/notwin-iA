@@ -1,6 +1,7 @@
 name: notwin_ia
-description: "A mysterious AI Moai assistant."
+description: "A new Flutter project for notwin iA with Moai persona."
 publish_to: 'none'
+
 version: 1.0.0+1
 
 environment:
@@ -10,8 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
   google_generative_ai: ^0.4.0
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
