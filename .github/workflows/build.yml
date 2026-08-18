@@ -13,7 +13,10 @@ jobs:
       with:
         flutter-version: '3.22.x'
         channel: 'stable'
-    - run: flutter create . --platforms=android --org com.notwin.ia
+    - name: Clean and create android files
+      run: |
+        rm -rf android
+        flutter create . --platforms=android
     - run: flutter pub get
     - run: flutter build apk --release
     - uses: actions/upload-artifact@v4
